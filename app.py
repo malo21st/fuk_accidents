@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 weekdays = ['月', '火', '水', '木', '金', '土', '日']
-hours = [h for h in range(0, 23 + 1)]
+hours = list(range(0, 23 + 1))
 severity = ['負傷', '死亡']
 years = [2016, 2017, 2018, 2019, 2020]
 
@@ -27,7 +27,7 @@ df = load_data()
 select_days = st.sidebar.multiselect("曜日", weekdays, default=weekdays)
 
 start_hour, end_hour = st.sidebar.select_slider("時間帯", options=hours, value=(0, 23))
-select_hours = [h for h in range(start_hour, end_hour + 1)]
+select_hours = list(range(start_hour, end_hour + 1))
 
 select_severity = st.sidebar.multiselect("事故内容", severity, default=severity)
 select_years = st.sidebar.multiselect("発生年", years, default=years)
