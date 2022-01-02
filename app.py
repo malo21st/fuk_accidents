@@ -46,5 +46,5 @@ st.write(
 )
 st.dataframe(
     pd.crosstab(df_hm['発生曜日'], df_hm['発生時'], margins=True, 
-            margins_name='計').reindex(index=select_days+["計"])
+            margins_name='計').reindex(index=select_days+["計"]).style.highlight_max(axis=0)
 )
