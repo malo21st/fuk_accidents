@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
+INDEX = ['月', '火', '水', '木', '金', '土', '日', '計']
 weekdays = ['月', '火', '水', '木', '金', '土', '日']
 hours = list(range(0, 23 + 1))
 severity = ['負傷', '死亡']
@@ -25,10 +26,8 @@ df = load_data()
 
 # sidebar
 select_days = st.sidebar.multiselect("曜日", weekdays, default=weekdays)
-
 start_hour, end_hour = st.sidebar.select_slider("時間帯", options=hours, value=(0, 23))
 select_hours = list(range(start_hour, end_hour + 1))
-
 select_severity = st.sidebar.multiselect("事故内容", severity, default=severity)
 select_years = st.sidebar.multiselect("発生年", years, default=years)
 
@@ -44,4 +43,8 @@ df_hm = df[
 st.header("福岡県の交通事故")
 st.write(
     heatmap(df_hm, select_days)
+)
+st.dataframe(
+    pd.crosstab(df_hm['発生曜日'], df_hm['発生時'], margins=True, 
+            margins_name='計').reindex(index=select_days+["計"])
 )
