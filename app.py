@@ -41,7 +41,7 @@ df_hm = df[
 
 #body
 st.header("福岡県の交通事故")
-st.write(
+st.plotly_chart(
     heatmap(df_hm, select_days)
 )
 st.dataframe(
