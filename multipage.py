@@ -31,11 +31,16 @@ class MultiPage:
     def run(self):
         # Drodown to select the page to run 
         st.sidebar.title("福岡県の交通事故") 
-        page = st.sidebar.selectbox(
+        page = st.sidebar.radio(
             'コンテンツ', 
             self.pages, 
             format_func=lambda page: page['title']
         )
+#         page = st.sidebar.selectbox(
+#             'コンテンツ', 
+#             self.pages, 
+#             format_func=lambda page: page['title']
+#         )
 
         # run the app function 
         page['function']()
