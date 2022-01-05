@@ -2,6 +2,8 @@ import streamlit as st
 import acc_heatmap, acc_map #, acc_table
 from multipage import MultiPage
 
+st.set_page_config(layout="wide")
+
 # Create an instance of the app 
 app = MultiPage()
 
