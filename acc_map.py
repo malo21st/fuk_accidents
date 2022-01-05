@@ -12,5 +12,5 @@ html_string = load_map_html("acc_map.html")
 
 #wrap all your code in this method and you should be done
 def app():
-    components.html(html_string, width=900, height=600)
+    components.html(html_string, height=600)
 #     components.html(html_string, width=700, height=500)
