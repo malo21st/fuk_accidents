@@ -22,9 +22,8 @@ def heatmap(df, weekdays):
         fig.update_yaxes(visible=False)
     return fig
 
-df = load_data("fuk_accidents.ftr")
-
 def app():
+    df = load_data("fuk_accidents.ftr")
     # sidebar
     select_days = st.sidebar.multiselect("曜日", weekdays, default=weekdays)
     start_hour, end_hour = st.sidebar.select_slider("時間帯", options=hours, value=(0, 23))
