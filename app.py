@@ -44,7 +44,7 @@ st.header("福岡県の交通事故")
 st.plotly_chart(
     heatmap(df_hm, select_days)
 )
-if df_hm:
+if len(df_hm):
     st.dataframe(
         pd.crosstab(df_hm['発生曜日'], df_hm['発生時'], margins=True, 
                 margins_name='計').reindex(index=select_days+["計"])
