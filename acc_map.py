@@ -1,8 +1,12 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-with open("acc_map.html", mode="r") as f:
-    html_string = f.read() 
+@st.cache
+def load_map_html(html_file):
+    with open(html_file, mode="r") as f:
+        return f.read("acc_map.html")
+    
+html_string = load_map_html()
 
 #wrap all your code in this method and you should be done
 def app():
