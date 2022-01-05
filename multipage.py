@@ -36,11 +36,7 @@ class MultiPage:
             self.pages, 
             format_func=lambda page: page['title']
         )
-#         page = st.sidebar.selectbox(
-#             'コンテンツ', 
-#             self.pages, 
-#             format_func=lambda page: page['title']
-#         )
+        st.sidebar.markdown("---")
 
         # run the app function 
         page['function']()
