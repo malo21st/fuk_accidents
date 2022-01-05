@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-INDEX = ['月', '火', '水', '木', '金', '土', '日', '計']
 weekdays = ['月', '火', '水', '木', '金', '土', '日']
 hours = list(range(0, 23 + 1))
 severity = ['負傷', '死亡']
