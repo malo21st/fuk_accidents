@@ -6,5 +6,5 @@ with open("acc_map.html", mode="r") as f:
 
 #wrap all your code in this method and you should be done
 def app():
-    components.html(html_string, width=800 ,height=600)
+    components.html(html_string, width=st.screen.width ,height=600)
 #     components.html(html_string, width=700, height=500)
