@@ -9,8 +9,8 @@ severity = ['負傷', '死亡']
 years = [2016, 2017, 2018, 2019, 2020]
 
 @st.cache
-def load_data(feather_file):
-    return pd.read_feather(feather_file)
+def load_data():
+    return pd.read_feather("fuk_accidents.ftr")
 
 def heatmap(df, weekdays):
     if len(df):
@@ -22,8 +22,9 @@ def heatmap(df, weekdays):
         fig.update_yaxes(visible=False)
     return fig
 
+df = load_data()
+
 def app():
-    df = load_data("fuk_accidents.ftr")
     # sidebar
     select_days = st.sidebar.multiselect("曜日", weekdays, default=weekdays)
     start_hour, end_hour = st.sidebar.select_slider("時間帯", options=hours, value=(0, 23))
