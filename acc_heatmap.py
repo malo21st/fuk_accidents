@@ -3,9 +3,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 
-#add an import to Hydralit
-from hydralit import HydraHeadApp
-
 weekdays = ['月', '火', '水', '木', '金', '土', '日']
 hours = list(range(0, 23 + 1))
 severity = ['負傷', '死亡']
