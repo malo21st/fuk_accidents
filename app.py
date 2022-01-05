@@ -17,7 +17,7 @@ def heatmap(df, weekdays):
         fig = px.imshow(pd.crosstab(df['発生曜日'], df['発生時']).reindex(index=weekdays))
     else:
         fig = px.bar()
-        fig.add_annotation(font=dict(size=36), showarrow=False, text="NO DATA")
+        fig.add_annotation(font=dict(size=36), showarrow=False, text="表示するデータがありません。")
         fig.update_xaxes(visible=False)
         fig.update_yaxes(visible=False)
     return fig
@@ -50,4 +50,4 @@ if len(df_hm):
                 margins_name='計').reindex(index=select_days+["計"])
     )
 else:
-    st.error('NO DATA')
+    st.error('抽出条件を設定し直して下さい。')
