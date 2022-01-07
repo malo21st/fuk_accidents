@@ -20,7 +20,7 @@ def load_data(acc_file):
     return pd.read_feather(acc_file)
 
 #wrap all your code in this method and you should be done
-def app(data):
+def app():
     # map
     map_str = load_map_html("acc_map.html")
     components.html(map_str, height=600)
