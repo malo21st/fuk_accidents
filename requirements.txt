@@ -1,4 +1,5 @@
 plotly
 folium
 streamlit-folium
-pyperclip = 1.8.2
+xclip
+pyperclip
