@@ -1,5 +1,4 @@
 plotly
 folium
 streamlit-folium
-pyperclip
-clipboard
+clipboard==0.0.4
