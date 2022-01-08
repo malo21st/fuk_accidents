@@ -6,7 +6,7 @@ from streamlit_folium import folium_static
 import folium
 import numpy as np
 import itertools
-import tkinter
+import pyperclip
 
 pos_index = ""
 
@@ -49,10 +49,8 @@ def app():
         st.empty()
 
     if add_button:
-        r = tkinter.Tk()
-        pos_index += r.clipboard_get() + " "
+        pos_index += pyperclip.paste() + " "
         element.info(pos_index)
-        r.destroy()
 
     if clear_button:
         pos_index = ""
