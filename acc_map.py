@@ -5,7 +5,7 @@ import json
 from streamlit_folium import folium_static
 import folium
 import numpy as np
-import clipboard
+import pyperclip
 import itertools
 
 pos_index = ""
@@ -49,7 +49,7 @@ def app():
         st.empty()
 
     if add_button:
-        pos_index += clipboard.paste() + " "
+        pos_index += pyperclip.paste() + " "
         element.info(pos_index)
 
     if clear_button:
