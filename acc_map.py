@@ -5,6 +5,10 @@ import json
 from streamlit_folium import folium_static
 import folium
 import numpy as np
+import clipboard
+import itertools
+
+pos_index = ""
 
 @st.cache
 def load_map_html(html_file):
@@ -22,23 +26,42 @@ def load_data(acc_file):
 
 #wrap all your code in this method and you should be done
 def app():
+    global pos_index
     # map
     map_str = load_map_html("acc_map.html")
     components.html(map_str, height=600)
     # detail info
     df = load_data("fuk_accidents.ftr")
     pos_dic = load_pos_data("pos_idx.json")
-    col1, col2 = st.columns((1, 1))
+    col1, col2, col3, col4, col5 = st.columns((4.8, 0.6, 0.6, 1, 5))
     with col1:
-        pos_index = st.text_input("位置コード：")
+        element = st.info(pos_index)
+        # pos_index = st.text_input("位置コード：", value=pos_code)
     with col2:
-        st.write("　"); st.write("　");
-        push_button = st.button('照会')
-    if push_button:
+        # st.write("　"); st.write("　");
+        add_button = st.button('追加')
+    with col3:
+        # st.write("　"); st.write("　");
+        inquiry_button = st.button('照会')
+    with col4:
+        clear_button = st.button('クリア')
+    with col5:
+        st.empty()
+
+    if add_button:
+        pos_index += clipboard.paste() + " "
+        element.info(pos_index)
+
+    if clear_button:
+        pos_index = ""
+        element.info(pos_index)
+
+    if inquiry_button:
         st.header('詳細情報')
         df_map = pd.DataFrame()
         try:
-            df_map = df[df.index.isin(pos_dic[pos_index])]
+            index_lst = list(itertools.chain.from_iterable([pos_dic[p] for p in set(pos_index.split())]))
+            df_map = df[df.index.isin(index_lst)]
         except:
             st.warning("位置コードが正しくありません。")
 
@@ -63,5 +86,7 @@ def app():
                     fill=True,
                     fill_color="red",
                 ).add_to(pos_map)
+                
+            pos_map.fit_bounds([(min(pos_lat), min(pos_lon)), (max(pos_lat), max(pos_lon))])
 
             folium_static(pos_map)
