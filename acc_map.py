@@ -38,9 +38,9 @@ def app():
     with col1:
 #         element = st.info("", pos_index)
         element = st.text_input("", value=pos_index)
-    with col2:
-        # st.write("　"); st.write("　");
-        add_button = st.button('追加')
+#     with col2:
+#         # st.write("　"); st.write("　");
+#         add_button = st.button('追加')
     with col3:
         st.write("　"); st.write("　");
         inquiry_button = st.button('照会')
