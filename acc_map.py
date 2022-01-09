@@ -34,7 +34,7 @@ def app():
     df = load_data("fuk_accidents.ftr")
     pos_dic = load_pos_data("pos_idx.json")
 #     col1, col2, col3, col4, col5 = st.columns((5, 1, 1, 1, 2))
-    col1, col3, col4, col5 = st.columns((5, 1, 1, 3))
+    col1, col3, col4, col5 = st.columns((5, 1, 4))
     with col1:
 #         element = st.info("", pos_index)
         element = st.text_input("位置コード：")
@@ -44,9 +44,9 @@ def app():
     with col3:
         st.write("　"); st.write("　");
         inquiry_button = st.button('照会')
-    with col4:
-        st.write("　"); st.write("　");
-        clear_button = st.button('消去')
+#     with col4:
+#         st.write("　"); st.write("　");
+#         clear_button = st.button('消去')
     with col5:
         st.empty()
 
@@ -54,10 +54,10 @@ def app():
 #         pos_index += pyperclip.paste() + " "
 #         element.info(pos_index)
     
-    if clear_button:
+#     if clear_button:
 #         pos_index = ""
 #         element.info(pos_index)
-        element.text_input("位置コード：")
+#         element.text_input("位置コード：")
 
     if inquiry_button:
         st.header('詳細情報')
