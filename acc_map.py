@@ -37,7 +37,7 @@ def app():
     col1, col3, col4, col5 = st.columns((5, 1, 1, 3))
     with col1:
 #         element = st.info("", pos_index)
-        element = st.text_input("")
+        element = st.text_input()
 #     with col2:
 #         # st.write("　"); st.write("　");
 #         add_button = st.button('追加')
@@ -57,12 +57,12 @@ def app():
     if clear_button:
         pos_index = ""
 #         element.info(pos_index)
-        element.text_input("")
+        element.text_input()
 
     if inquiry_button:
         st.header('詳細情報')
         df_map = pd.DataFrame()
-        pos_index = element.text_input("")
+        pos_index = element.text_input()
         try:
             
             index_lst = list(itertools.chain.from_iterable([pos_dic[p] for p in set(pos_index.split())]))
