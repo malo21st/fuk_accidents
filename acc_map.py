@@ -35,15 +35,16 @@ def app():
     pos_dic = load_pos_data("pos_idx.json")
     col1, col2, col3, col4, col5 = st.columns((5, 1, 1, 1, 2))
     with col1:
-#         element = st.info(pos_index)
+#         element = st.info("", pos_index)
         element = st.text_input(value=pos_index)
     with col2:
         # st.write("　"); st.write("　");
         add_button = st.button('追加')
     with col3:
-        # st.write("　"); st.write("　");
+        st.write("　"); st.write("　");
         inquiry_button = st.button('照会')
     with col4:
+        st.write("　"); st.write("　");
         clear_button = st.button('消去')
     with col5:
         st.empty()
