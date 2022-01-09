@@ -34,7 +34,7 @@ def app():
     df = load_data("fuk_accidents.ftr")
     pos_dic = load_pos_data("pos_idx.json")
 #     col1, col2, col3, col4, col5 = st.columns((5, 1, 1, 1, 2))
-    col1, col3, col4, col5 = st.columns((5, 1, 4))
+    col1, col3, col5 = st.columns((5, 1, 4))
     with col1:
 #         element = st.info("", pos_index)
         element = st.text_input("位置コード：")
