@@ -37,7 +37,7 @@ def app():
     col1, col3, col4, col5 = st.columns((5, 1, 1, 3))
     with col1:
 #         element = st.info("", pos_index)
-        element = st.text_input("位置コード：")
+        element = st.empty()
 #     with col2:
 #         # st.write("　"); st.write("　");
 #         add_button = st.button('追加')
@@ -53,7 +53,7 @@ def app():
 #     if add_button:
 #         pos_index += pyperclip.paste() + " "
 #         element.info(pos_index)
-
+    element.text_input("位置コード：")
     if clear_button:
         pos_index = ""
 #         element.info(pos_index)
@@ -62,7 +62,7 @@ def app():
     if inquiry_button:
         st.header('詳細情報')
         df_map = pd.DataFrame()
-        pos_index = element.text_input("位置コード：")
+        pos_index = element
         try:
             
             index_lst = list(itertools.chain.from_iterable([pos_dic[p] for p in set(pos_index.split())]))
