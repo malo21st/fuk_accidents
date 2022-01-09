@@ -63,11 +63,11 @@ def app():
         st.header('詳細情報')
         df_map = pd.DataFrame()
         try:
-            pos_index = element.text_input("")
+            pos_index = element.text_input()
             index_lst = list(itertools.chain.from_iterable([pos_dic[p] for p in set(pos_index.split())]))
             df_map = df[df.index.isin(index_lst)]
         except:
-            st.warning("位置コードが正しくありません。")
+            st.warning("抽出条件が正しくありません。")
 
         if len(df_map):
             # table
