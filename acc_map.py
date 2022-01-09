@@ -56,12 +56,14 @@ def app():
 
     if clear_button:
         pos_index = ""
-        element.info(pos_index)
+#         element.info(pos_index)
+        element.text_input("", value=pos_index)
 
     if inquiry_button:
         st.header('詳細情報')
         df_map = pd.DataFrame()
         try:
+            pos_index = element.text_input("")
             index_lst = list(itertools.chain.from_iterable([pos_dic[p] for p in set(pos_index.split())]))
             df_map = df[df.index.isin(index_lst)]
         except:
