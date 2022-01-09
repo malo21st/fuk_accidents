@@ -36,7 +36,7 @@ def app():
     col1, col2, col3, col4, col5 = st.columns((5, 1, 1, 1, 2))
     with col1:
 #         element = st.info("", pos_index)
-        element = st.text_input(value=pos_index)
+        element = st.text_input("", value=pos_index)
     with col2:
         # st.write("　"); st.write("　");
         add_button = st.button('追加')
