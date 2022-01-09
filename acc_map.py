@@ -57,7 +57,7 @@ def app():
     if clear_button:
         pos_index = ""
 #         element.info(pos_index)
-        element.text_input("位置コード：")
+        element.text_input("位置コード：", value="")
 
     if inquiry_button:
         st.header('詳細情報')
