@@ -35,8 +35,8 @@ def app():
     pos_dic = load_pos_data("pos_idx.json")
     col1, col2, col3, col4, col5 = st.columns((5, 1, 1, 1, 2))
     with col1:
-        element = st.info(pos_index)
-        # pos_index = st.text_input("位置コード：", value=pos_code)
+#         element = st.info(pos_index)
+        element = st.text_input("位置コード：", value=pos_index)
     with col2:
         # st.write("　"); st.write("　");
         add_button = st.button('追加')
@@ -48,9 +48,9 @@ def app():
     with col5:
         st.empty()
 
-    if add_button:
-        pos_index += pyperclip.paste() + " "
-        element.info(pos_index)
+#     if add_button:
+#         pos_index += pyperclip.paste() + " "
+#         element.info(pos_index)
 
     if clear_button:
         pos_index = ""
