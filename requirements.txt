@@ -1,4 +1,3 @@
 plotly
 folium
 streamlit-folium
-pyperclip
