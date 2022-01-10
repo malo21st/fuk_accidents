@@ -1,19 +1,20 @@
 import streamlit as st
 import acc_heatmap, acc_map #, acc_table
 from multipage import MultiPage
-import itertools
 # from PIL import Image
 
-count = itertools.count()
+st.session_state.times = 0
 
 def set_mode(mode):
-    if next(count) == 0:
-#         im = Image.open("malo21st.png")
+#     im = Image.open("malo21st.png")
+    if not st.session_state.times:
         st.set_page_config(
             page_title="福岡県の交通事故",
-#             page_icon=im,
             layout=mode,
+#             page_icon=im,
         )
+    else:
+        st.session_state.times += 1
 
 def main():
     # Create an instance of the app 
