@@ -31,6 +31,7 @@ class MultiPage:
     def run(self):
         # Drodown to select the page to run 
         st.sidebar.title("福岡県の交通事故") 
+        st.sidebar.write("under construction")
         page = st.sidebar.radio(
             'コンテンツ', 
             self.pages, 
