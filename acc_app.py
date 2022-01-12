@@ -3,7 +3,7 @@ import acc_heatmap, acc_map #, acc_table
 from multipage import MultiPage
 # from PIL import Image
 
-st.session_state.is_first_time = True
+st.session_state["is_first_time"] = True
 
 def set_mode(mode):
 #     im = Image.open("malo21st.png")
