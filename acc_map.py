@@ -71,15 +71,10 @@ def app():
 
         if len(df_map):
             # table
-            df_map.reset_index(drop=True, inplace=True)
             df_map.index = np.arange(1, len(df_map)+1)
             st.dataframe(df_map)
             # map
-            pos_lat = df_map["発生場所緯度"] 
-            pos_lon = df_map["発生場所経度"] 
-            center= [(max(pos_lat)+min(pos_lat)) / 2, (max(pos_lon)+min(pos_lon)) / 2]
-
-            pos_map = folium.Map(location=center, zoom_start=18)
+            pos_map = folium.Map()
 
             for _, row in df_map.iterrows():
                 folium.CircleMarker(
@@ -91,6 +86,7 @@ def app():
                     fill_color="red",
                 ).add_to(pos_map)
                 
+            pos_lat, pos_lon = df_map["発生場所緯度"], df_map["発生場所経度"]
             pos_map.fit_bounds([(min(pos_lat), min(pos_lon)), (max(pos_lat), max(pos_lon))])
 
             folium_static(pos_map)
