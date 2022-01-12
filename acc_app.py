@@ -3,18 +3,18 @@ import acc_heatmap, acc_map #, acc_table
 from multipage import MultiPage
 # from PIL import Image
 
-st.session_state.times = 0
+st.session_state.is_first_time = True
 
 def set_mode(mode):
 #     im = Image.open("malo21st.png")
-    if not st.session_state.times:
+    if not st.session_state.is_first_time:
         st.set_page_config(
             page_title="福岡県の交通事故",
             layout=mode,
 #             page_icon=im,
         )
     else:
-        st.session_state.times += 1
+        st.session_state.is_first_time = False
 
 def main():
     # Create an instance of the app 
